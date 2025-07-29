@@ -12,30 +12,37 @@
                 const numerosecreto = Math.floor(Math.random() * 100) + 1;
                 const maxtentativas = 3;
                 let acertou = false;
+
                 alert(`Bem-vindo ao jogo de adivinhação, você tem apenas 3 tentativas.`);
+                for (let tentativa = 1; tentativa <= maxtentativas; tentativa++){
+                let palpite = prompt('Digite um número entre 1 e 100 ou sair');
 
-                while (maxtentativas > 0) {
-                    let palpite = prompt('Digite um número entre 1 e 100 ou sair');
-
-                    if(palpite == numerosecreto){
-                        acertou = true;
-                        alert(`Você acertou`);
-                        }else if(palpite < numerosecreto){
-                        alert(`Número secreto é maior que seu palpite`);
-                        }else{
-                        alert(`Número secreto é menor que seu palpite`);
-                        }
+                if(palpite == numerosecreto){
+                    acertou = true;
+                    alert(`Você acertou`);
+                    break;
+                }else if(palpite < numerosecreto){
+                    alert(`Número secreto é maior que seu palpite`);
+                }else{
+                    alert(`Número secreto é menor que seu palpite`);
                 }
-                
-                if(!acertou){
+                }
+
+                if(!acertou && continuar){
                     alert(`Suas tentativas acabaram, o número era ${numerosecreto}`);
                 }
+                if(continuar){
+                    continuar = confirm("Deseja jogar novamente?")
+                }
+                alert('obrigado por jogar')
+            
+
         }
-        let mensagem = prompt('Obrigada por jogar')
+        
     }
 
-        jogoadivinhacao()
 
+        jogoadivinhacao()
     </script>
 </head>
 <body>
